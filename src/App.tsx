@@ -1,36 +1,13 @@
-import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { Repos } from './pages/Repos'
+import { Repo } from './pages/Repo'
 
-type Repository = {
-  id: string;
-  full_name: string;
-  description: string;
-}
-
-function App() {
-  const [repositories, setRepositories] = useState<Repository[]>([])
-
-  useEffect(() => {
-    fetch("https://api.github.com/users/AdrianeRibeiro/repos")
-      .then(response => response.json())
-      .then(data => {
-        setRepositories(data)
-      })
-  }, [])
-
+export function App() {
   return (
-    <div>
-      <ul>
-        {repositories && repositories.map(repo => {
-          return(
-            <li key={repo.id}>
-              <strong>{repo.full_name}</strong>
-              <p>{repo.description || ''}</p>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-    
+    <Routes>
+      <Route path="/" element={<Repos />} />
+      <Route path="/repo" element={<Repo />} />
+    </Routes>
   )
 }
 
