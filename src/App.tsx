@@ -8,7 +8,7 @@ type Repository = {
 
 function App() {
   const { data: repositories, isFetching } 
-    = useFetch<Repository[]>("https://api.github.com/users/AdrianeRibeiro/repos")
+    = useFetch<Repository[]>("/users/AdrianeRibeiro/repos")
 
   return (
     <>
