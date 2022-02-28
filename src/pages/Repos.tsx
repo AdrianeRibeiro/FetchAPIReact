@@ -2,7 +2,7 @@ import { useQuery } from 'react-query'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 
-type Repository = {
+export type Repository = {
   id: string;
   full_name: string;
   description: string;
